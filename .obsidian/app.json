@@ -9,5 +9,7 @@
   "newFileLocation": "current",
   "promptDelete": true,
   "showUnsupportedFiles": false,
-  "showInlineTitle": false
+  "showInlineTitle": false,
+  "showLineNumber": false,
+  "propertiesInDocument": "source"
 }

@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: 了解知识库
-      link: /markdown-examples
+      link: /知识库相关/了解知识库
     - theme: alt
       text: 参与贡献
-      link: /api-examples
+      link: /知识库相关/参与贡献
 
 features:
   - title: Minecraft
