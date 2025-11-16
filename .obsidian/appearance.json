@@ -1,0 +1,9 @@
+{
+  "cssTheme": "Catppuccin",
+  "interfaceFontFamily": "MiSans VF",
+  "textFontFamily": "MiSans VF",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono",
+  "baseFontSizeAction": true,
+  "nativeMenus": false,
+  "accentColor": "#6b9eef"
+}

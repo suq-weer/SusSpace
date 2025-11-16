@@ -1,0 +1,10 @@
+{
+  "userIgnoreFilters": [
+    "node_modules/"
+  ],
+  "useMarkdownLinks": true,
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "relative",
+  "attachmentFolderPath": "/assets",
+  "newFileLocation": "current"
+}

@@ -1,0 +1,6 @@
+node_modules/
+yarn.lock
+.vitepress/cache/
+workspace.json
+workspace-mobile.json
+.vscode/
