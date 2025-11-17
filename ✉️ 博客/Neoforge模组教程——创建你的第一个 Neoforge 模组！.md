@@ -12,15 +12,15 @@ tags:
 
 ## 前言
 
-自从 Forge 团队分家开始，Minecraft 模组界就多了一股新的清流，那就是 <mdui-avatar src="https://neoforged.net/img/authors/neoforged.png"></mdui-avatar> Neoforge。
+自从 Forge 团队分家开始，Minecraft 模组界就多了一股新的清流，那就是 Neoforge。
 
-> [!note]
-> <mdui-avatar src="https://neoforged.net/img/authors/neoforged.png"></mdui-avatar> Neoforge 只有 1.20.2 及以后的版本，因为它是在那个时候成立的项目。
+> [!info]
+> Neoforge 只有 1.20.2 及以后的版本，因为它是在那个时候成立的项目。
 
 介于 Neoforge 团队声称之后 Neoforge 将**更具开放性，还有更好的性能**。<del><small>（有可能是在画饼）</del></small>我在这个暑假也入坑了这个模组加载器，顺便因此进入这 MC 模组的大坑。通过一个暑假的学习之后写出了这个教程，就当是成果汇报吧！
 
 > [!warning]
->开始这个教程前，你需要对 **Java 语言、原版的数据包**有个基本的掌握（如类继承、实现接口等）。Java 语言可以前往 <a src="https://runoob.com/">菜鸟教程</a> 学习，原版数据包可以前往 <a src="https://zh.minecraft.wiki/">中文 Minecraft Wiki</a> 学习。
+> 开始这个教程前，你需要对 **Java 语言、原版的数据包**有个基本的掌握（如类继承、实现接口等）。Java 语言可以前往 [菜鸟教程](https://runoob.com) 学习，原版数据包可以前往 [中文 Minecraft Wiki](https://zh.minecraft.wiki/) 学习。
 
 ## 准备工具
 
@@ -37,10 +37,10 @@ Intellij Idea 可以为我们配置 Gradle、MC 游戏本体、Neoforge、需要
 
 **安装与使用 Intellij Idea 的话，有人已经做了更好的：**
 
-<mdui-button icon="web" end-icon="arrow_forward" href="https://gitee.com/xuguozhong/IntelliJ-IDEA-Tutorial" variant="tonal" full-width>Gitee 上的 Idea 简体中文教程</mdui-button>
+[Gitee 上的 Idea 简体中文教程](https://gitee.com/xuguozhong/IntelliJ-IDEA-Tutorial)
 
-> [!notice]
->可以安装一个叫 Minecraft Develop 的插件，可以**不用下载下面要说的 MDK 模板哦～**
+> [!tip]
+> 可以安装一个叫 Minecraft Develop 的插件，可以**不用下载下面要说的 MDK 模板哦～**
 
 ### Neoforge MDK 模板
 
@@ -48,7 +48,7 @@ Intellij Idea 可以为我们配置 Gradle、MC 游戏本体、Neoforge、需要
 
 1. 访问 Neoforge 的 MDK 模板仓库：
 
-<mdui-button icon="web" end-icon="arrow_forward--outlined" href="https://github.com/NeoForgeMDKs/MDK-1.21-NeoGradle" variant="tonal" full-width>MDK-1.21-NeoGradle</mdui-button>
+[MDK-1.21-NeoGradle](https://github.com/NeoForgeMDKs/MDK-1.21-NeoGradle)
 
 2. 选择 `Use this template` 创建远程仓库<small>（如果你懂得怎么使用 GitHub 的话）</small>或点击 `Code` -> `Download ZIP` 下载压缩包解压到电脑里你喜欢的地方；
 
@@ -87,7 +87,7 @@ loader_version_range=[4,)
 
 **在 `neogradle.subsystems.parchment.minecraftVersion`、`minecraft_version`(`_range`) 的 “=” 后面填入你想开发的 MC 版本，在 `neo_version`(`_range`) 的 “=” 后面填入你想开发的 Neoforge 版本**，可以转到注释给出的网站，也可以点击这个链接：
 
-<mdui-button icon="web" end-icon="arrow_forward--outlined" href="https://projects.neoforged.net/neoforged/neoforge" variant="tonal" full-width>Neoforge 项目版本列表查询网页</mdui-button>
+[Neoforge 项目版本列表查询网页](https://projects.neoforged.net/neoforged/neoforge)
 
 > [!warning]
 >**给出代码段未说明的配置项中，保持原样可能是不好的选择**，建议直接在 GitHub 历史提交页下载当时 Neoforge 更新时候的 MDK 模板。
@@ -156,7 +156,7 @@ mod_description=Liver more lover!
 
 ## 结语
 
->[!check]
->最后，欢迎你来到 Minecraft 模组的世界！你可以继续期待我的后续教程或者查阅官方文档哟！
+> [!check]
+> 最后，欢迎你来到 Minecraft 模组的世界！你可以继续期待我的后续教程或者查阅官方文档哟！
 
-<mdui-button icon="document_scanner--outlined" end-icon="arrow_forward" href="https://docs.neoforged.net/" variant="tonal" full-width>Neoforged 文档</mdui-button>
+[Neoforged 文档](https://docs.neoforged.net/)

@@ -10,14 +10,14 @@ tags:
 
 # Neoforge模组教程（2）——前置导入、事件系统、物品注册
 
->[!error]
->请先阅读 [Neoforge模组教程——创建你的第一个 Neoforge 模组！](Neoforge模组教程——创建你的第一个%20Neoforge%20模组！.md) 再尝试阅读本文章。
+> [!danger]
+> 请先阅读 [Neoforge模组教程——创建你的第一个 Neoforge 模组！](Neoforge模组教程——创建你的第一个%20Neoforge%20模组！.md) 再尝试阅读本文章。
 
 ## 前言
 
 架设好模组开发环境后，我们来学一下基本功。
 
->[!notice]
+> [!tip]
 >**下文说的 Gradle 均指的是 NeoGradle，这是一个 NeoForged 团队修改过的 Gradle 项目构建器。**
 
 ## 前置库/模组导入
@@ -63,5 +63,5 @@ dependencies {
 		- `name`：仓库名，一般用于 Gradle 错误输出
 		- `url`：仓库地址，***千万别填错！***
 - `dependencies`：项目前置（Gradle 会尝试根据这里的内容进行项目前置打包或调试处理）
-	- `compliteOnly()`：编译时不把前置源码放入项目模组的最终构建文件中（相当于模组需要前置模组才能启动）
+	- `compliteOnly()`：编译时不把前置源码放入项目模组的最终构建文件中 *（相当于模组需要前置模组才能启动）*
 	- `runtimeOnly()`：启动调试用的 Minecraft 时将前置模组加载

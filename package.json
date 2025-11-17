@@ -1,5 +1,5 @@
 {
-  "license": "CC BY-NC-SA 4.0",
+  "license": "CC-BY-NC-SA-4.0",
   "devDependencies": {
     "medium-zoom": "^1.1.0",
     "vitepress": "^2.0.0-alpha.13",
