@@ -1,10 +1,20 @@
+---
+tags:
+  - Minecraft
+  - Neoforge
+  - 编程开发
+  - 游戏
+  - Java
+  - 教程
+---
+
 # Neoforge 模组入门——创建你的第一个 Neoforge 模组！
 
 ## 前言
 
 自从 Forge 团队分家开始，Minecraft 模组界就多了一股新的清流，那就是 <mdui-avatar src="https://neoforged.net/img/authors/neoforged.png"></mdui-avatar> Neoforge。
 
-> [!note] 小知识
+> [!note]
 > <mdui-avatar src="https://neoforged.net/img/authors/neoforged.png"></mdui-avatar> Neoforge 只有 1.20.2 及以后的版本，因为它是在那个时候成立的项目。
 
 介于 Neoforge 团队声称之后 Neoforge 将**更具开放性，还有更好的性能**。<del><small>（有可能是在画饼）</del></small>我在这个暑假也入坑了这个模组加载器，顺便因此进入这 MC 模组的大坑。通过一个暑假的学习之后写出了这个教程，就当是成果汇报吧！
@@ -29,7 +39,7 @@ Intellij Idea 可以为我们配置 Gradle、MC 游戏本体、Neoforge、需要
 
 <mdui-button icon="web" end-icon="arrow_forward" href="https://gitee.com/xuguozhong/IntelliJ-IDEA-Tutorial" variant="tonal" full-width>Gitee 上的 Idea 简体中文教程</mdui-button>
 
-> [!notice] 提示
+> [!notice]
 >可以安装一个叫 Minecraft Develop 的插件，可以**不用下载下面要说的 MDK 模板哦～**
 
 ### Neoforge MDK 模板

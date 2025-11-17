@@ -40,13 +40,13 @@ python -m nuitka --lto=no --onefile --standalone .\main.py
 >[!important]
 >`--onefile`选项下**打出来的包本身就具备可移植性**，因此不需要额外加上`--standalone`。`--onefile`打包结果像绿色软件，仅一个可执行文件；`--standalone`的打包结果像经过安装的软件，文件夹下包含运行所需要的文件和程序入口。**如果两个参数同时输入，将会同时编译出两种文件。**
 
-- `lto`：**启用链接时间优化。**链接时间优化是一种编译器优化技术，它可以在编译和链接阶段对整个程序进行优化，而不仅仅是对单个源文件进行优化。通过启用lto，您可以**让编译器在链接时对生成的目标代码进行更深入的优化，提高程序的性能和执行效率**；
+- `lto`：**启用链接时间优化**。链接时间优化是一种编译器优化技术，它可以在编译和链接阶段对整个程序进行优化，而不仅仅是对单个源文件进行优化。通过启用lto，您可以**让编译器在链接时对生成的目标代码进行更深入的优化，提高程序的性能和执行效率**；
 - `--remove-output`：**在打包结束后，清理打包过程中生成的临时文件。**
-- `--enable-plugin=`：启用插件，等号后跟插件名。**在要打包的Python代码使用了一些特殊的包时，需要启用插件，Nuitka才能够正确打包。**如：如在代码中使用了PySide6，就需要加上`--enable-plugin=pyside6`。具体的插件列表可以使用`nuitka --plugin-list`来查看。
+- `--enable-plugin=`：启用插件，等号后跟插件名。**在要打包的Python代码使用了一些特殊的包时，需要启用插件，Nuitka才能够正确打包**。如：如在代码中使用了PySide6，就需要加上`--enable-plugin=pyside6`。具体的插件列表可以使用`nuitka --plugin-list`来查看。
 - `--disable-console`：**在运行打包后的程序时，不会弹出控制台，而是直接运行GUI程序。**
-- `--include-package-data=`：**包含给定软件包名称中的数据文件，等号后软件包名称。**有的时候Nuitka并不能正确分析出一些Python软件包所需要使用的数据文件，在运行程序时提示FileNotFoundError等错误，此时就需要使用该选项。如：`--include-package-data=ultralytics`
-- `--include-data-files=`：**按文件名包含数据文件，等号后的格式为<SRC=DEST>。**SRC指的是文件夹的路径，DEST指的是文件夹相对于打包结果的路径，其中DEST只能使用相对路径。如：`--include-data-files=/Users/admin/Downloads/yolov5n.pt=./yolov5n.pt`
-- `--include-data-dir=`：**包含文件夹中的数据文件，等号后的格式为<SRC=DEST>。**使用方法与`--include-data-files`相同。
+- `--include-package-data=`：**包含给定软件包名称中的数据文件，等号后软件包名称**。有的时候 Nuitka 并不能正确分析出一些Python软件包所需要使用的数据文件，在运行程序时提示 FileNotFoundError 等错误，此时就需要使用该选项。如：`--include-package-data=ultralytics`
+- `--include-data-files=`：**按文件名包含数据文件，等号后的格式为<SRC=DEST>**。SRC指的是文件夹的路径，DEST指的是文件夹相对于打包结果的路径，其中DEST只能使用相对路径。如：`--include-data-files=/Users/admin/Downloads/yolov5n.pt=./yolov5n.pt`
+- `--include-data-dir=`：**包含文件夹中的数据文件，等号后的格式为<SRC=DEST>**。使用方法与`--include-data-files`相同。
 
 **好了，你现在可以看到编译结果了！**
 

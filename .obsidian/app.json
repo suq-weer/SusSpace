@@ -11,7 +11,7 @@
   "showUnsupportedFiles": false,
   "showInlineTitle": false,
   "showLineNumber": false,
-  "propertiesInDocument": "source",
+  "propertiesInDocument": "visible",
   "strictLineBreaks": true,
   "uriCallbacks": true,
   "foldIndent": true
