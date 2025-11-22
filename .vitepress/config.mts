@@ -9,6 +9,7 @@ import mdItObsidianCallouts from 'markdown-it-obsidian-callouts'
 export default defineConfig({
   lang: 'zh-CN',
   title: "SusSpace",
+  base: '/SusSpace/',
   description: "Xiaosu 的知识库",
   markdown: {
     config: (md) => {
