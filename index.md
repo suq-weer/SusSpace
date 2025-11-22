@@ -15,11 +15,13 @@ hero:
       link: /知识库相关/参与贡献
 
 features:
-  - title: Minecraft
+  - title: 游戏
+    icon: 🕹
     details: 模组发布、模组教程、游戏笔记……
   - title: 日常
+    icon: 📸
     details: 偶然想法、随笔、笔记……
   - title: 知识交流
+    icon: 📘
     details: 学习笔记、知识分享……
 ---
-
