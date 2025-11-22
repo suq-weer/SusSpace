@@ -1,0 +1,56 @@
+/* 字体定义 */
+@font-face {
+  font-family: 'MiSans';
+  font-weight: 100 900; /* 可变字体支持多种字重 */
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/MiSansVF.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'JetBrainsMonoNerdFont';
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/JetBrainsMonoNerdFontMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'JetBrainsMonoNerdFont';
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  src: url('./fonts/JetBrainsMonoNerdFontMono-Italic.ttf') format('truetype');
+}
+
+/* 应用字体到正文和标题 */
+:root {
+  --vp-font-family-base: 'MiSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  
+  /* 应用字体到代码块 */
+  --vp-font-family-mono: 'JetBrainsMonoNerdFont', monospace;
+}
+
+body {
+  font-family: var(--vp-font-family-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--vp-font-family-base);
+}
+
+/* 代码相关的元素使用等宽字体 */
+code, kbd, samp, pre {
+  font-family: var(--vp-font-family-mono);
+}
+
+.vp-code-group .tabs label {
+  font-family: var(--vp-font-family-mono);
+}
+
+.vp-doc a > code,
+.vp-doc div[class*='language-'],
+.vp-doc div[class*='language-'] pre,
+.vp-doc code {
+  font-family: var(--vp-font-family-mono);
+}
