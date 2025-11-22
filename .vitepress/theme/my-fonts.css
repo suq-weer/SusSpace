@@ -4,7 +4,7 @@
   font-weight: 100 900; /* 可变字体支持多种字重 */
   font-style: normal;
   font-display: swap;
-  src: url('./fonts/MiSansVF.ttf') format('truetype');
+  src: url('/assets/MiSansVF.ttf') format('truetype');
 }
 
 @font-face {
@@ -12,7 +12,7 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-  src: url('./fonts/JetBrainsMonoNerdFontMono-Regular.ttf') format('truetype');
+  src: url('/assets/JetBrainsMonoNerdFontMono-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -20,7 +20,7 @@
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
-  src: url('./fonts/JetBrainsMonoNerdFontMono-Italic.ttf') format('truetype');
+  src: url('/assets/JetBrainsMonoNerdFontMono-Italic.ttf') format('truetype');
 }
 
 /* 应用字体到正文和标题 */
