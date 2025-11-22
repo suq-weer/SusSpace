@@ -5,5 +5,3 @@ workspace-mobile.json
 .vscode/
 .trash/
 *.bak
-.obsidian/plugins/*
-.vitepress/dist/*
