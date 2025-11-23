@@ -13,7 +13,6 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://pages.xiaosuoaa.top'
   },
-  logo: '/assets/logo.png',
   description: "Xiaosu 的知识库",
   markdown: {
     config: (md) => {
@@ -26,7 +25,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '参与贡献', link: '/知识库相关/参与贡献.md' }
     ],
-
+    logo: '/assets/logo.png',
     sidebar: generateSidebar({
       /*
        * For detailed instructions, see the links below:

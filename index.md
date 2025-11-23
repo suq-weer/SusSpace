@@ -6,8 +6,7 @@ hero:
   name: "SusSpace"
   text: "Xiaosu 的知识库"
   tagline: 知识共享，一起进步！
-  image:
-    - src: /assets/logo.png
+  image: /assets/logo.png
   actions:
     - theme: brand
       text: 了解知识库
