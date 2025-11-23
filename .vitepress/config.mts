@@ -10,6 +10,12 @@ export default defineConfig({
   lang: 'zh-CN',
   title: "SusSpace",
   base: '/',
+  sitemap: {
+    hostname: 'https://pages.xiaosuoaa.top'
+  },
+  themeConfig: {
+    logo: '/logo.png'
+  },
   description: "Xiaosu 的知识库",
   markdown: {
     config: (md) => {
