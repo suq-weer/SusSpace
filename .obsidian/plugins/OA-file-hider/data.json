@@ -1,6 +1,7 @@
 {
   "hidden": true,
   "hiddenList": [
-    "node_modules"
+    "node_modules",
+    "public"
   ]
 }

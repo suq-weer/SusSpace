@@ -6,18 +6,19 @@ tags:
   - 游戏
   - Java
   - 教程
+  - Gradle
 ---
 
-# Neoforge模组教程（2）——前置导入、事件系统
+# Neoforge模组教程（2）——前置导入
 
-> [!warning]
+> [!warning] 提醒
 > 请先阅读 [Neoforge模组教程——创建你的第一个 Neoforge 模组！](Neoforge模组教程——创建你的第一个%20Neoforge%20模组！.md) 再尝试阅读本文章。
 
 ## 前言
 
 架设好模组开发环境后，我们来学一下基本功，**这篇文章将会教你如何导入前置模组、如何订阅游戏事件来运行自己的代码与创建第一个属于自己模组的物品**。
 
-> [!tip]
+> [!tip] 注意
 >**下文说的 Gradle 均指带 NeoGradle 插件的 Gradle 项目构建器。**
 
 ## 前置库/模组导入
@@ -62,7 +63,7 @@ dependencies {
 > 	- `compliteOnly()`：编译时不把前置源码放入项目模组的最终构建文件中 *（相当于模组需要前置模组才能启动）*
 > 	- `runtimeOnly()`：启动调试用的 Minecraft 时将前置模组加载进 Minecraft 里
 
-> [!tip]
+> [!tip] 小提示
 > **如果在 `repositories` 导入了一个仓库后，就不要再重复导入相同的仓库了。**
 
 填入代码后，我们会看到 **IDE 对 `${mc_version}` 与 `${jei_version}` 字段标注出了语法错误**，其实**这是两个还未定义的变量**，**修改 `${mc_version}` 为 `${minecraft_version}`**，然后打开 `gradle.properties` 文件，填入：
@@ -241,6 +242,5 @@ dependencies {
 }
 ```
 
-> [!tip]
+> [!tip] 小提示
 > **组名（`com.example`）可以是任意的，但是不能为空。**
-

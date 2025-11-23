@@ -2,6 +2,7 @@
 tags:
   - Python
   - 教程
+  - 编程开发
 ---
 # 微机课 Python 作业——在控制台输出直角三角形
 ```python

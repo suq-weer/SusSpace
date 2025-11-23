@@ -6,6 +6,7 @@ tags:
   - 游戏
   - Java
   - 教程
+  - Gradle
 ---
 
 # Neoforge 模组入门——创建你的第一个 Neoforge 模组！
@@ -42,9 +43,26 @@ Intellij Idea 可以为我们配置 Gradle、MC 游戏本体、Neoforge、需要
 > [!tip]
 > 可以安装一个叫 Minecraft Develop 的插件，可以**不用下载下面要说的 MDK 模板哦～**
 
-### Neoforge MDK 模板
+### Neoforge 项目模板下载
 
-***（需要去 GitHub 上下载，且 MDK 模板需要在 Neoforge 提供的仓库下载游戏本体与 Gradle，如果因为网络环境问题不能继续的话可以更换网络环境）***
+***（MDK 模板需要在 Neoforge 提供的仓库下载游戏本体与 Gradle，如果因为网络环境问题不能继续的话可以更换网络环境）***
+
+#### Neoforge Mod Generator 生成
+
+1. 前往 [Neoforge Mod Generator](https://neoforged.net/mod-generator/) 填写表单：
+![](../assets/Screenshot_2025-11-23-10-20-57-516-edit_com.microsoft.emmx.dev.jpg)
+2. 填写表单，然后点击最下面的 `DOWNLOAD MOD PROJECT`
+> [!tip]- 如何填写表单？
+> - `Mod Name`：模组名称，可填中文（如果填写非英文的模组名称需要取消勾选 `Generate mod ID from name`
+> - `Mod ID`：模组命名空间 ID
+> - `Package Name`：Java 的包名
+> - `Game Version`：模组的游戏版本
+> - `Gradle Plugin`：模组使用的 *Gradle* 插件（随便选择，`ModDevGradle` 比较新，本教程选择 `NeoGradle`）
+> - `Add mixin configuration`：启用 *Mixin* 来注入 *Minecraft* 源码
+
+3. 等待浏览器拉起下载界面，解压到任意位置即可
+
+#### GitHub 模板仓库
 
 1. 访问 Neoforge 的 MDK 模板仓库：
 
@@ -62,7 +80,7 @@ Intellij Idea 可以为我们配置 Gradle、MC 游戏本体、Neoforge、需要
 
 ### 修改gradle.properies
 
-**用 Idea 打开项目根目录的 `gradle.properies` 文件，你会遇到以下几行配置：
+**用 Idea 打开项目根目录的 `gradle.properies` 文件**，你会遇到以下几行配置：
 
 ```properties
 #read more on this at https://github.com/neoforged/NeoGradle/blob/NG_7.0/README.md#apply-parchment-mappings
