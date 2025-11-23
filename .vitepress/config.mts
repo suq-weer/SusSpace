@@ -14,7 +14,7 @@ export default defineConfig({
     hostname: 'https://pages.xiaosuoaa.top'
   },
   themeConfig: {
-    logo: '/logo.png'
+    logo: '/assets/logo.png'
   },
   description: "Xiaosu 的知识库",
   markdown: {
