@@ -61,7 +61,8 @@ public class Register {
 @Mod(ExampleMod.MOD_ID)
 public class ExampleMod {
 	public static final String MOD_ID = "example_mod"
-	// [!code focus:4]
+
+	// [!code focus:3]
 	public SubTech(IEventBus modBus, ModContainer container) {
         Register.register(modBus);
     }
