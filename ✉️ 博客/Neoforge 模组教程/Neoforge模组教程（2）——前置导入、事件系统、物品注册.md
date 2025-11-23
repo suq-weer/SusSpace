@@ -12,7 +12,7 @@ tags:
 # Neoforge模组教程（2）——前置导入
 
 > [!warning] 提醒
-> 请先阅读 [Neoforge模组教程——创建你的第一个 Neoforge 模组！](Neoforge模组教程——创建你的第一个%20Neoforge%20模组！.md) 再尝试阅读本文章。
+> 请先阅读 [Neoforge模组教程——创建你的第一个 Neoforge 模组！](Neoforge%20模组教程/Neoforge模组教程——创建你的第一个%20Neoforge%20模组！.md) 再尝试阅读本文章。
 
 ## 前言
 
@@ -77,7 +77,7 @@ jei_version=19.25.1.328
 
 **如果模组作者没有要求特定的版本号获取渠道**<small>（有特别要求的请以模组文档为准）</small>，那么请在 Modrinth<small>或 CurseForge</small> 查看模组最新版的版本号，这里给出 [Modrinth 链接](https://modrinth.com)
 
-![橙底背景高亮的就是 jei 的版本号，注意一定是 Neoforge 版](../assets/Screenshot_2025-11-18-14-35-39-337-edit_com.microsoft.emmx.dev.jpg)
+![橙底背景高亮的就是 jei 的版本号，注意一定是 Neoforge 版](../../assets/Screenshot_2025-11-18-14-35-39-337-edit_com.microsoft.emmx.dev.jpg)
 <small>上面橙底背景高亮的就是 jei 的版本号，注意一定是 Neoforge 版。</small>
 
 > [!detail]- 为什么要修改 `${mc_version}` 为 `${minecraft_version}`？
@@ -148,10 +148,10 @@ side = "BOTH"
 > [!detail]- [CurseMaven](https://cursemaven.com/) 通用导入方法
 >
 > 1. 前往对应模组的模组介绍页<small>（拿 JEI 举例）</small>复制 Project ID：
-> ![前往对应模组的模组介绍页复制 Project ID](../assets/projectid.png)
+> ![前往对应模组的模组介绍页复制 Project ID](../../assets/projectid.png)
 > <small>（图原自 <a src="https://cursemaven.com/projectid.png">CurseMaven 网站</a>）</small>
 > 2. 再前往你要下载的版本的版本介绍页里，在浏览器地址栏里复制 File ID：
-> ![前往你要下载的版本的版本介绍页里，在浏览器地址栏里复制 File ID](../assets/fileid.png)
+> ![前往你要下载的版本的版本介绍页里，在浏览器地址栏里复制 File ID](../../assets/fileid.png)
 > 3. 在 `build.gradle` 里填入 CurseMaven 仓库地址、依赖模组：
 > ```groovy
 > // gradle 6.2+ 写法
@@ -180,10 +180,10 @@ side = "BOTH"
 
 > [!detail]- [Modrinth](https://docs.modrinth.com/docs/tutorials/maven/) 通用导入方法
 > 1. 前往目标模组的模组介绍页，查看地址栏复制 `slug`：
->  ![前往目标模组的模组介绍页，查看地址栏复制 slug](../assets/Screenshot_2025-11-19-22-17-21-294-edit_com.microsoft.emmx.dev.jpg)
+>  ![前往目标模组的模组介绍页，查看地址栏复制 slug](../../assets/Screenshot_2025-11-19-22-17-21-294-edit_com.microsoft.emmx.dev.jpg)
 >  <small>拿钠举例，它的 slug 就是 sodium。</small>
 > 2. 跟之前一样，在版本页复制版本号：
->  ![橙底背景高亮的就是 jei 的版本号，注意一定是 Neoforge 版](../assets/Screenshot_2025-11-18-14-35-39-337-edit_com.microsoft.emmx.dev.jpg)
+>  ![橙底背景高亮的就是 jei 的版本号，注意一定是 Neoforge 版](../../assets/Screenshot_2025-11-18-14-35-39-337-edit_com.microsoft.emmx.dev.jpg)
 > <small>上面橙底背景高亮的就是 jei 的版本号，注意一定是 Neoforge 版。</small>
 > 3. 在 `build.gradle` 里填入 Modrinth Maven 仓库地址、依赖模组：
 > ```groovy

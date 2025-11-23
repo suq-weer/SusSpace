@@ -40,11 +40,11 @@ pip install nuitca
 python -m nuitka --lto=no --onefile --standalone .\main.py
 ```
 
-**这里解释一下指令的参数：**[转载自 CSDN][https://blog.csdn.net/m0_66570838/article/details/132232023]
+**这里解释一下指令的参数：**[转载自 CSDN](https://blog.csdn.net/m0_66570838/article/details/132232023)
 - `--standalone`：使得**打包结果与本地的Python环境无关**，即使得打包结果具备可移植性。
 - `--onefile`：使得**打包结果为一个可执行文件**，而不是一个文件夹。
 
->[!important]
+>[!important] 小提示
 >`--onefile`选项下**打出来的包本身就具备可移植性**，因此不需要额外加上`--standalone`。`--onefile`打包结果像绿色软件，仅一个可执行文件；`--standalone`的打包结果像经过安装的软件，文件夹下包含运行所需要的文件和程序入口。**如果两个参数同时输入，将会同时编译出两种文件。**
 
 - `lto`：**启用链接时间优化**。链接时间优化是一种编译器优化技术，它可以在编译和链接阶段对整个程序进行优化，而不仅仅是对单个源文件进行优化。通过启用lto，您可以**让编译器在链接时对生成的目标代码进行更深入的优化，提高程序的性能和执行效率**；

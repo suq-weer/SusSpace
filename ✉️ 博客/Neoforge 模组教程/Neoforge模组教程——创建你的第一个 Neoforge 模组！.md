@@ -30,7 +30,7 @@ tags:
 
 ### Intellij Idea
 
-![IntelliJ Idea](../assets/webpagepreview_1280x800_IntelliJ_IDEA_2023_1.png)
+![IntelliJ Idea](../../assets/webpagepreview_1280x800_IntelliJ_IDEA_2023_1.png)
 
 既然 MC 模组**需要 Java 进行开发**，光敲代码不能直接测试是不行吧，那么一个**好的开发环境**就显得及其需要，***<del>那么这里推荐……</del>***<small>（这里并没有恰饭的意思哈）</small>
 
@@ -50,7 +50,7 @@ Intellij Idea 可以为我们配置 Gradle、MC 游戏本体、Neoforge、需要
 #### Neoforge Mod Generator 生成
 
 1. 前往 [Neoforge Mod Generator](https://neoforged.net/mod-generator/) 填写表单：
-![](../assets/Screenshot_2025-11-23-10-20-57-516-edit_com.microsoft.emmx.dev.jpg)
+![](../../assets/Screenshot_2025-11-23-10-20-57-516-edit_com.microsoft.emmx.dev.jpg)
 2. 填写表单，然后点击最下面的 `DOWNLOAD MOD PROJECT`
 > [!tip]- 如何填写表单？
 > - `Mod Name`：模组名称，可填中文（如果填写非英文的模组名称需要取消勾选 `Generate mod ID from name`
@@ -70,7 +70,7 @@ Intellij Idea 可以为我们配置 Gradle、MC 游戏本体、Neoforge、需要
 
 2. 选择 `Use this template` 创建远程仓库<small>（如果你懂得怎么使用 GitHub 的话）</small>或点击 `Code` -> `Download ZIP` 下载压缩包解压到电脑里你喜欢的地方；
 
-![](../assets/3240881416.jpg)
+![](../../assets/3240881416.jpg)
 
 3. 用 IntelliJ Idea 打开解压内容中的 build.gradle。
 
