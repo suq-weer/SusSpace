@@ -13,9 +13,7 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://pages.xiaosuoaa.top'
   },
-  themeConfig: {
-    logo: '/assets/logo.png'
-  },
+  logo: '/assets/logo.png'
   description: "Xiaosu 的知识库",
   markdown: {
     config: (md) => {
