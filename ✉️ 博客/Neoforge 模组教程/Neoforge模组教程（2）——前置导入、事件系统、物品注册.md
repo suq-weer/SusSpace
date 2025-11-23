@@ -12,7 +12,7 @@ tags:
 # Neoforge模组教程（2）——前置导入
 
 > [!warning] 提醒
-> 请先阅读 [Neoforge模组教程——创建你的第一个 Neoforge 模组！](Neoforge%20模组教程/Neoforge模组教程——创建你的第一个%20Neoforge%20模组！.md) 再尝试阅读本文章。
+> 请先阅读 [Neoforge模组教程——创建你的第一个 Neoforge 模组！](Neoforge模组教程——创建你的第一个%20Neoforge%20模组！.md) 再尝试阅读本文章。
 
 ## 前言
 
