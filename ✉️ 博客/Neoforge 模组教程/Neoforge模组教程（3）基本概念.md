@@ -150,3 +150,113 @@ if (FMLEnvironment.dist == Dist.CLIENT) {
 | 处理游戏逻辑（如方块交互、实体生成）          | 用  `!level.isClientSide()`  判断，确保只在逻辑服务器执行          |
 | 使用客户端专属类（如  `Minecraft`  类） | 用  `FMLEnvironment.dist == Dist.CLIENT`  判断，避免服务器崩溃 |
 | 注册客户端内容（如屏幕、渲染器）            | 放在客户端专属的  `@Mod`  类中，设置  `dist = Dist.CLIENT`       |
+
+## 事件系统
+
+**事件系统是 NeoForge 的主要特色之一**。**事件（*Event*）是根据游戏中发生的各种事情触发的**。例如，玩家右键点击、玩家或其他实体跳跃、方块渲染、游戏加载等事件。**我们可以为这些事件订阅事件处理程序，然后在这些事件处理程序中执行它们想要的行为**。
+
+### 游戏总线（NeoForge Event Bus）
+
+事件会在各自的事件总线上触发。最重要的总线（*Bus*）是 `NeoForge.EVENT_BUS`，也称为**游戏总线**。
+
+#### 注册方法
+
+**注册事件的方法有三种**，但所有这些方法的共同点是**每个事件处理程序都是一个只有一个事件参数且没有结果的方法**（即**返回类型** `void` ）。
+
+##### `IEventBus#addListener`
+
+```java
+@Mod("example_mod")
+public class ExampleMod {
+    public ExampleMod(IEventBus modBus) {
+    // [!code focus:2]
+    // 在这里将我们模组的 onLivingJump() 方法传入游戏总线
+    NeoForge.EVENT_BUS.addListener(YourMod::onLivingJump);
+    }
+
+	// [!code focus:8]
+    // 当任意实体跳跃时触发该事件
+    private static void onLivingJump(LivingEvent.LivingJumpEvent event) {
+        LivingEntity entity = event.getEntity();
+        // 只能在逻辑服务端上给实体回血
+        if (!entity.level().isClientSide()) {
+            entity.heal(1);
+        }
+    }
+}
+```
+
+##### `@SubscribeEvent`
+
+**事件订阅**可以通过**创建事件订阅方法并用 `@SubscribeEvent` 进行注解**来驱动。然后，你可以**将包含该方法的类构造函数传递给事件总线**，**注册该类所有带  `@SubscribeEvent` 注解的事件订阅**：
+
+```java
+// 还是任意实体跳跃回血
+public class EventHandler {
+    @SubscribeEvent // [!code ++]
+    public void onLivingJump(LivingEvent.LivingJumpEvent event) {
+        LivingEntity entity = event.getEntity();
+        if (!entity.level().isClientSide()) {
+            entity.heal(1);
+        }
+    }
+}
+
+// 也可以使用静态类
+public class SecondEventHandler {
+    @SubscribeEvent // [!code ++]
+    public static void onLivingJump(LivingEvent.LivingJumpEvent event) { // [!code warning]
+        LivingEntity entity = event.getEntity();
+        if (!entity.level().isClientSide()) {
+            entity.heal(1);
+        }
+    }
+}
+
+@Mod("yourmodid")
+public class YourMod {
+    public YourMod(IEventBus modBus) {
+        NeoForge.EVENT_BUS.register(new EventHandler()); // [!code ++]
+	    NeoForge.EVENT_BUS.register(EventHandler.class); // [!code ++]
+    }
+}
+```
+
+##### `@EventBusSubscriber`
+
+可以用 `@EventBusSubscriber` 注释事件处理类。**NeoForge 会自动发现该注释，允许你从模组构造器中移除所有与事件相关的代码**。本质上，**它等同于调用** `NeoForge.EVENT_BUS.register(EventHandler.class)` **模组构造器和** `modBus.register(EventHandler.class)` 。**这意味着所有处理器方法也必须保持静态**。
+
+```java
+// 还是任意实体跳跃回血
+@EventBusSubscriber(modid = "yourmodid") // [!code ++]
+public class EventHandler {
+    @SubscribeEvent // [!code ++]
+    public static void onLivingJump(LivingEvent.LivingJumpEvent event) { // [!code warning]
+        LivingEntity entity = event.getEntity();
+        if (!entity.level().isClientSide()) {
+            entity.heal(1);
+        }
+    }
+}
+```
+
+### 模组总线（Mod Event Bus）
+
+**此外，启动时会为每个加载的模组生成一个模组总线，并传递到模组的构造器中。**（在 [示例：注册物品](#示例：注册物品) 里演示过一次）
+
+```java
+@Mod(ExampleMod.MOD_ID)
+public class ExampleMod {
+	public static String MOD_ID = "example_mod";
+	
+	// [!code focus:4]
+	// 模组构造器
+	public static void register(IEventBus modBus) {
+        // 方法的 modBus 参数就是 Neoforge 给模组的模组总线
+    }
+}
+```
+
+> [!info] 信息
+> **许多模组总线事件是并行触发的**<small>（而主总线事件总是在同一线程上运行）</small>，**这极大地提高了启动速度**。
+
