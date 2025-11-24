@@ -41,8 +41,9 @@ public class Register {
 ```java
 public class Register {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, MOD_ID);
-    
-    public static void register(IEventBus modBus) { // [!code focus:3]
+
+    // [!code focus:3]
+    public static void register(IEventBus modBus) {
         ITEMS.register(modBus);
     }
 }
@@ -63,6 +64,7 @@ public class Register {
 @Mod(ExampleMod.MOD_ID)
 public class ExampleMod {
 	public static final String MOD_ID = "example_mod"
+	public static final Supplier<Item> EXAMPLE_ITEM = ITEMS.register("example_item", new Item(/*...*/));
 
 	// [!code focus:3]
 	public SubTech(IEventBus modBus, ModContainer container) {
@@ -92,3 +94,59 @@ public class ExampleMod {
 **逻辑服务器**是游戏逻辑运行的地方。像时间和天气变化、实体跳动、实体生成等功能都在服务器上运行。所有类型的数据，比如库存内容，也都是服务器的责任。
 
 而**逻辑客户端**则负责显示所有可显示的内容。**Minecraft 把所有客户端代码放在一个独立`net.minecraft.client`包里，并在一个叫做 `Render Thread` 的独立线程中运行**，而其他代码则被视为通用代码（即客户端和服务器端代码）。
+
+**举个例子：**
+
+- 玩家加入了一个**多人世界**：**玩家的物理（和逻辑）客户端连接到另一个物理（且逻辑）服务器**。
+- 玩家加入一个**单人世界**：**玩家的物理客户端启动一个逻辑服务器**，**然后以逻辑客户端的角色连接到同一台机器上的该逻辑服务器**。如果你熟悉网络，可以把它看作是连接到`localhost` （仅限概念上，没有实际的套接字或类似的处理）。
+
+**也就是说：**
+
+- **多人游戏时**，**客户端只会调用客户端的代码**，**服务端只会调用服务端的代码**
+- **单人游戏时**，**客户端会启动一个“逻辑上的”服务端**，运行服务端代码，而不仅仅是客户端代码
+- **物理端是你“运行的是哪个程序”，逻辑端是你“当前代码在哪个线程上执行”**
+
+这两个场景也代表了：**如果逻辑服务端能处理你的代码**<small>（即客户端上的逻辑服务端）</small>，**但这并不保证物理服务器也能兼容**。**你应该始终用专用服务端测试，检查是否有意外行为**。
+
+| **错误**       | **后果**                       |
+| ------------ | ---------------------------- |
+| 在逻辑客户端执行游戏逻辑 | 导致不同步（假实体、假物品等）              |
+| 在物理服务器调用客户端类 | 直接崩溃： `NoClassDefFoundError` |
+| 用静态变量共享逻辑端数据 | 单机正常，联机出错（因为客户端和服务器线程共用静态变量） |
+
+由于客户端和服务器分离错误导致的 **`NoClassDefFoundError` 和 `ClassNotFoundException` 是模组中最常见的错误**。
+
+### 如何判断？
+
+#### 逻辑侧
+
+**进入世界时，获取世界 `level`，使用它的 `.isClientSide()` 方法：**
+
+```java
+if (!level.isClientSide()) {
+    // 这里是逻辑服务器，安全地处理游戏逻辑
+}
+```
+
+`true` **则为逻辑客户端**，`false` **则为逻辑服务端**。
+
+#### 物理侧
+
+**通过** `FMLEnvironment` **类**：
+
+```java
+if (FMLEnvironment.dist == Dist.CLIENT) {
+    // 只在物理客户端上执行，比如注册屏幕、渲染器
+}
+```
+
+- `Dist.CLIENT`：**物理客户端**<small>（即玩家运行的游戏）</small>
+-  `Dist.DEDICATED_SERVER`：**物理服务端**<small>（即服务器正在运行的程序）</small>
+
+### 开发建议
+
+| **场景**                      | **推荐做法**                                            |
+| --------------------------- | --------------------------------------------------- |
+| 处理游戏逻辑（如方块交互、实体生成）          | 用  `!level.isClientSide()`  判断，确保只在逻辑服务器执行          |
+| 使用客户端专属类（如  `Minecraft`  类） | 用  `FMLEnvironment.dist == Dist.CLIENT`  判断，避免服务器崩溃 |
+| 注册客户端内容（如屏幕、渲染器）            | 放在客户端专属的  `@Mod`  类中，设置  `dist = Dist.CLIENT`       |
