@@ -217,7 +217,7 @@ public class SecondEventHandler {
 public class YourMod {
     public YourMod(IEventBus modBus) {
         NeoForge.EVENT_BUS.register(new EventHandler()); // [!code ++]
-	    NeoForge.EVENT_BUS.register(EventHandler.class); // [!code ++]
+	    NeoForge.EVENT_BUS.register(SecondEventHandler.class); // [!code ++]
     }
 }
 ```
