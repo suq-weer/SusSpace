@@ -14,8 +14,8 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: -1;                /* 位于内容之下、背景图之上 */
-  background: rgba(255,255,255,0.5);   /* 想多白就调 alpha */
+  z-index: -1;
+  background: rgba(255,255,255,0.5);
 }
 
 /* ===== 暗黑模式换图 ===== */
@@ -24,11 +24,11 @@ body::before {
 }
 
 .dark body::before {
-  background: rgba(0,0,0,0);
+  background: rgba(0,0,0,0.5);
 }
 
 .dark .VPContent::before {
-  backdrop-filter: blur(6px) brightness(0.6); /* 比白天再压暗一点 */
+  backdrop-filter: blur(6px)
 }
 
 /* 2. 去掉 VPContent 的纯白底 */
@@ -38,15 +38,15 @@ body::before {
 
 /* 3. 毛玻璃遮罩：给整个内容区域加模糊 */
 .VPContent {
-  position: relative;          /* 让伪元素相对它定位 */
+  position: relative;
 }
 .VPContent::before {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: 0;                  /* 关键：0 就能盖住背景图，又不会挡文字 */
-  backdrop-filter: blur(6px);  /* 毛玻璃 + 变亮 */
-  pointer-events: none;        /* 让鼠标事件穿透 */
+  z-index: 0;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
 }
 
 /* 让文字层高于遮罩，防止被模糊 */
