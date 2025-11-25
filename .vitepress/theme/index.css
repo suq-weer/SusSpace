@@ -16,20 +16,21 @@ body {
 }
 
 /* 3. 毛玻璃遮罩：给整个内容区域加模糊 */
+.VPContent {
+  position: relative;          /* 让伪元素相对它定位 */
+}
 .VPContent::before {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: -1;
-  /* 关键：把背景图再铺一次，然后模糊 */
-  background-image: inherit;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  filter: blur(12px) brightness(0.85);   /* 模糊 + 压暗 */
-  transform: scale(1.1);                 /* 防止模糊边缘露白 */
+  z-index: 0;                  /* 关键：0 就能盖住背景图，又不会挡文字 */
+  backdrop-filter: blur(12px) brightness(0.8);  /* 毛玻璃 + 压暗 */
+  pointer-events: none;        /* 让鼠标事件穿透 */
 }
+
+/* 让文字层高于遮罩，防止被模糊 */
+.VPContent > * { position: relative; z-index: 1; }
+
 
 /**
  * Color about
