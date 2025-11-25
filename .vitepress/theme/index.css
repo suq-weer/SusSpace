@@ -27,10 +27,6 @@ body::before {
   background: rgba(0,0,0,0.5);
 }
 
-.dark .VPContent::before {
-  backdrop-filter: blur(6px)
-}
-
 /* 2. 去掉 VPContent 的纯白底 */
 .VPContent {
   background: transparent !important;
@@ -47,6 +43,9 @@ body::before {
   z-index: 0;
   backdrop-filter: blur(6px);
   pointer-events: none;
+}
+.dark .VPContent::before {
+  backdrop-filter: blur(6px)
 }
 
 /* 让文字层高于遮罩，防止被模糊 */
