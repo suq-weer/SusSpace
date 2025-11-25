@@ -33,7 +33,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;                  /* 关键：0 就能盖住背景图，又不会挡文字 */
-  backdrop-filter: blur(6px) brightness(0.8);  /* 毛玻璃 + 压暗 */
+  backdrop-filter: blur(6px) brightness(1.6);  /* 毛玻璃 + 变亮 */
   pointer-events: none;        /* 让鼠标事件穿透 */
 }
 
