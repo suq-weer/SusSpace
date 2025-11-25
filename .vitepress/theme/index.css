@@ -10,9 +10,21 @@ body {
   background-attachment: fixed;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;                /* 位于内容之下、背景图之上 */
+  background: rgba(255,255,255,0.5);   /* 想多白就调 alpha */
+}
+
 /* ===== 暗黑模式换图 ===== */
 .dark body {
   background-image: url(/assets/bgDark.jpg);
+}
+
+.dark body::before {
+  background: rgba(0,0,0,0);
 }
 
 .dark .VPContent::before {
@@ -33,7 +45,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;                  /* 关键：0 就能盖住背景图，又不会挡文字 */
-  backdrop-filter: blur(6px) brightness(1.6);  /* 毛玻璃 + 变亮 */
+  backdrop-filter: blur(6px);  /* 毛玻璃 + 变亮 */
   pointer-events: none;        /* 让鼠标事件穿透 */
 }
 
