@@ -1,5 +1,36 @@
 @import './blur.css';
 
+/* 1. 全屏背景图（不动） */
+body {
+  margin: 0;
+  background-image: url(./assets/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* 2. 去掉 VPContent 的纯白底 */
+.VPContent {
+  background: transparent !important;
+}
+
+/* 3. 毛玻璃遮罩：给整个内容区域加模糊 */
+.VPContent::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* 关键：把背景图再铺一次，然后模糊 */
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(12px) brightness(0.85);   /* 模糊 + 压暗 */
+  transform: scale(1.1);                 /* 防止模糊边缘露白 */
+}
+
 /**
  * Color about
  */
