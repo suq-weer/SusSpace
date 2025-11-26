@@ -15,12 +15,12 @@ tags:
 
 自从 Forge 团队分家开始，Minecraft 模组界就多了一股新的清流，那就是 Neoforge。
 
-> [!info]
+> [!info] 信息
 > Neoforge 只有 1.20.2 及以后的版本，因为它是在那个时候成立的项目。
 
 介于 Neoforge 团队声称之后 Neoforge 将**更具开放性，还有更好的性能**。<del><small>（有可能是在画饼）</small></del>我在这个暑假也入坑了这个模组加载器，顺便因此进入这 MC 模组的大坑。通过一个暑假的学习之后写出了这个教程，就当是成果汇报吧！
 
-> [!warning]
+> [!attention] 注意
 > 开始这个教程前，你需要对 **Java 语言、原版的数据包**有个基本的掌握（如类继承、实现接口等）。Java 语言可以前往 [菜鸟教程](https://runoob.com) 学习，原版数据包可以前往 [中文 Minecraft Wiki](https://zh.minecraft.wiki/) 学习。
 
 ## 准备工具
@@ -40,7 +40,7 @@ Intellij Idea 可以为我们配置 Gradle、MC 游戏本体、Neoforge、需要
 
 [Gitee 上的 Idea 简体中文教程](https://gitee.com/xuguozhong/IntelliJ-IDEA-Tutorial)
 
-> [!tip]
+> [!tip] 提示
 > 可以安装一个叫 Minecraft Develop 的插件，可以**不用下载下面要说的 MDK 模板哦～**
 
 ### Neoforge 项目模板下载
@@ -107,7 +107,7 @@ loader_version_range=[4,)
 
 [Neoforge 项目版本列表查询网页](https://projects.neoforged.net/neoforged/neoforge)
 
-> [!warning]
+> [!attention] 注意
 >**给出代码段未说明的配置项中，保持原样可能是不好的选择**，建议直接在 GitHub 历史提交页下载当时 Neoforge 更新时候的 MDK 模板。
 
 继续看下去：
@@ -148,7 +148,7 @@ mod_description=Liver more lover!
 
 保存刚才的文件，此时**你会在编辑器上看到一个 Gradle 刷新图标**，**点击这个图标**，让 Idea 自动下载开发套件。
 
->[!warning]
+>[!attention] 注意
 >如果你用的是国内环境的话，至少会下载数小时的时间（除去 Idea 配置与游戏安装的）。
 
 **在等待的同时，我们需要对项目的代码部分做点改动：**
@@ -174,7 +174,7 @@ mod_description=Liver more lover!
 
 ## 结语
 
-> [!check]
+> [!success] 完成教程！
 > 最后，欢迎你来到 Minecraft 模组的世界！你可以继续期待我的后续教程或者查阅官方文档哟！
 
 [Neoforged 文档](https://docs.neoforged.net/)
