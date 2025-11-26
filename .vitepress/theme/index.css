@@ -1,53 +1,42 @@
 @import './blur.css';
 
-/* 1. 全屏背景图 */
+/* ========= 基础重置 ========= */
+:root {
+  /* 把 VP 默认的背景色改成透明，让 body 的背景图透上来 */
+  --vp-c-bg: transparent;
+  --vp-c-bg-alt: transparent;
+  --vp-c-bg-elv: transparent;
+  --vp-c-bg-soft: transparent;
+}
+
+/* ========= 亮色模式 ========= */
+:root {
+  --bg-image: url(/bg.jpg);
+  --bg-mask: rgba(255, 255, 255, 0.6);   /* 白色遮罩透明度自己调 */
+}
+
+/* ========= 深色模式 ========= */
+.dark {
+  --bg-image: url(/bgDark.jpg);
+  --bg-mask: rgba(0, 0, 0, 0.6);         /* 黑色遮罩透明度自己调 */
+}
+
+/* ========= 真正挂背景图 ========= */
 body {
   margin: 0;
-  background-image: url(/assets/bg.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: rgba(255,255,255,0.5);
-}
-
-/* ===== 暗黑模式换图 ===== */
-.dark body {
-  background-image: url(/assets/bgDark.jpg);
-}
-
-.dark body::before {
-  background: rgba(0,0,0,0.5);
-}
-
-/* 2. 去掉 VPContent 的纯白底 */
-.VPContent {
-  background: transparent !important;
-}
-
-/* 3. 毛玻璃遮罩：给整个内容区域加模糊 */
-.VPContent {
+  min-height: 100vh;
+  background: var(--bg-image) center/cover no-repeat fixed;
   position: relative;
 }
-.VPContent::before {
-  content: '';
-  position: absolute;
+
+/* 遮罩层：伪元素盖在 body 上 */
+body::before {
+  content: "";
+  position: fixed;
   inset: 0;
-  z-index: 0;
-  backdrop-filter: blur(6px);
-  pointer-events: none;
+  background: var(--bg-mask);
+  z-index: -1;   /* 保证遮罩在背景图之上，内容之下 */
 }
-
-/* 让文字层高于遮罩，防止被模糊 */
-.VPContent > * { position: relative; z-index: 1; }
-
 
 /**
  * Color about
