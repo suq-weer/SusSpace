@@ -1,23 +1,14 @@
 @import './blur.css';
 
-/* ========= 基础重置 ========= */
-:root {
-  /* 把 VP 默认的背景色改成透明，让 body 的背景图透上来 */
-  --vp-c-bg: transparent;
-  --vp-c-bg-alt: transparent;
-  --vp-c-bg-elv: transparent;
-  --vp-c-bg-soft: transparent;
-}
-
 /* ========= 亮色模式 ========= */
 :root {
-  --bg-image: url(/bg.jpg);
+  --bg-image: url(/assets/bg.jpg);
   --bg-mask: rgba(255, 255, 255, 0.6);   /* 白色遮罩透明度自己调 */
 }
 
 /* ========= 深色模式 ========= */
 .dark {
-  --bg-image: url(/bgDark.jpg);
+  --bg-image: url(/assets/bgDark.jpg);
   --bg-mask: rgba(0, 0, 0, 0.6);         /* 黑色遮罩透明度自己调 */
 }
 
