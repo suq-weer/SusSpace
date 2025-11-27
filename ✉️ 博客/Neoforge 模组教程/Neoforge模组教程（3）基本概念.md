@@ -265,12 +265,12 @@ public class ExampleMod {
 
 2. 以下代码片段会在**物理服务器启动时崩溃**，请指出具体哪一行触发了什么异常，并给出两种修复方案：  
 ```java:line-numbers
-   @SubscribeEvent
-   public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent e) {
+@SubscribeEvent
+public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent e) {
     // [!code focus:2]
     Minecraft mc = Minecraft.getInstance();
     mc.player.sendSystemMessage(Component.literal("Hi"));
-   }
+}
 ```
 
 3. 我们都知道，***Fabric* 和 *Neo Forge/Forge* 的逻辑处理其实是相通的，但在细节上有所不同**，下面是一段 [Fabric Wiki 使用 Fabric 监听事件的示例](https://wiki.fabricmc.net/zh_cn:tutorial:callbacks)代码，试试**根据注释转化成 *Neo Forge*** `IEventBus#addListener` **代码**：
@@ -280,12 +280,16 @@ public class ExampleMod implements ModInitializer {
     @Override
     public void onInitialize() {
     // 注册 AttackBlockCallback 事件（Neoforge 为 PlayerInteractEvent.LeftClickBlock，参数基本上可以通用）
-    AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
-	    BlockState state = world.getBlockState(pos);
-		    if (state.isToolRequired() && !player.isSpectator() && player.getMainHandStack().isEmpty()) {
-			    player.damage(DamageSource.field_5869, 1.0F);
-		    }
-	    return ActionResult.PASS;
+	    AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
+		    BlockState state = world.getBlockState(pos);
+			if (
+				state.isToolRequired() &&
+				!player.isSpectator() &&
+				player.getMainHandStack().isEmpty()
+			) {
+				player.damage(DamageSource.field_5869, 1.0F);
+			}
+		    return ActionResult.PASS;
 		});
 	}
 }
