@@ -42,4 +42,25 @@
         backdrop-filter: blur(var(--var-blur));
     }
 
+    /* 侧边栏透明 */
+    .VPSidebar {
+        background-color: rgba(var(--background-color), 0);
+        backdrop-filter: blur(var(--var-blur));
+    }
+
+    .aside-curtain {
+        background: linear-gradient(transparent, var(--vp-c-bg) 150%);
+    }
+
+}
+
+/* 直接对根节点下手，整站生效 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--docsearch-text-color) transparent;
+  scroll-snap-type: proximity;
+}
+
+html {
+    scrollbar-width: auto;
 }
